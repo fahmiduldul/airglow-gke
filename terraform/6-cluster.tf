@@ -1,10 +1,10 @@
 resource "google_container_cluster" "airflow" {
-  name                     = "airflow"
-  location                 = "asia-southeast2-b"
-  initial_node_count       = 1
-  remove_default_node_pool = true
-  logging_service          = "logging.googleapis.com/kubernetes"
-  monitoring_service       = "monitoring.googleapis.com/kubernetes"
+  name               = "airflow"
+  location           = "asia-southeast2"
+  initial_node_count = 1
+  enable_autopilot   = true
+  logging_service    = "logging.googleapis.com/kubernetes"
+  monitoring_service = "monitoring.googleapis.com/kubernetes"
 
   networking_mode = "VPC_NATIVE"
   network         = google_compute_network.airflow_vpc.self_link
