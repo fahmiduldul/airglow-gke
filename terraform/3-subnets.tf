@@ -2,6 +2,7 @@ resource "google_compute_subnetwork" "private" {
   name          = "private"
   ip_cidr_range = "10.0.0.0/16"
   network       = google_compute_network.airflow_vpc.id
+  region        = "asia-southeast2"
 
   private_ip_google_access = true
 
