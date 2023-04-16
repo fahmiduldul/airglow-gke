@@ -1,4 +1,10 @@
+locals {
+  enable_gke = true
+}
+
 resource "google_container_cluster" "airflow" {
+  count = local.enable_gke ? 1 : 0
+
   name               = "airflow"
   location           = "asia-southeast2"
   initial_node_count = 1
